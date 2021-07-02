@@ -17,32 +17,32 @@ public class Calculadora {
 		this.visualizacoesNum = 0;
 	}
 
-	//método para obter o número de visualizacões
+	//mÃ©todo para obter o nÃºmero de visualizacÃµes
 	public double getVisualizacoesNum() {
 		return visualizacoesNum;
 	}
 
-	//método para atualizar o número de visualizações
+	//mÃ©todo para atualizar o nÃºmero de visualizaÃ§Ãµes
 	public void setVisualizacoesNum(double visualizacoesNum) {
 		this.visualizacoesNum = visualizacoesNum;
 	}
 
-	//método para calcular o número de cliques dado o número de visualizacoes
+	//mÃ©todo para calcular o nÃºmero de cliques dado o nÃºmero de visualizacoes
 	public double calculaCliques(double visualizacoes) {	
 		return (12.0/100.0)*visualizacoes;
 	}
 
-	//método para calcular o número de compartilhamentos dado o número de visualizacoes
+	//mÃ©todo para calcular o nÃºmero de compartilhamentos dado o nÃºmero de visualizacoes
 	public double calculaCompartilhamentos(double visualizacoes) {
-	    return (3.0/20.0)*calculaCliques(visualizacoes);
+		return (3.0/20.0)*calculaCliques(visualizacoes);
 	}
 
-	//método para calcular o número de visualizacoes dado o número de visualizacoes inicial
+	//mÃ©todo para calcular o nÃºmero de visualizacoes dado o nÃºmero de visualizacoes inicial
 	public double calculaVisualizacoes(double visualizacoes) {
-	    return 40.0*calculaCompartilhamentos(visualizacoes);
+		return 40.0*calculaCompartilhamentos(visualizacoes);
 	}
 	
-	//método para obter o número de visualizacoes máximas
+	//mÃ©todo para obter o nÃºmero de visualizacoes mÃ¡ximas
 	public double getVisualizacoesMax( double invest_total) {
 		double aux = 30*invest_total;
 		setVisualizacoesNum(aux);
@@ -50,12 +50,11 @@ public class Calculadora {
 		for (int i = 0; i<3 ; i++) {
 			aux = calculaVisualizacoes(aux);
 			setVisualizacoesNum(getVisualizacoesNum() + aux);
-		}
-		
+		}		
 		return getVisualizacoesNum();
 	}
 	
-	// Testes unitários
+	// Testes unitÃ¡rios
 	@Test
 	void test() {
 		Calculadora calculadora = new Calculadora();
@@ -75,10 +74,7 @@ public class Calculadora {
 		assertEquals("391747,20", String.format("%.2f", resultado ) );
 		
 		resultado = calculadora.getVisualizacoesMax(1.7);
-		assertEquals("133,19", String.format("%.2f", resultado ) );
-		
+		assertEquals("133,19", String.format("%.2f", resultado ) );		
 	}
-
 }
-//FIM
 	
