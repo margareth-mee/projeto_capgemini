@@ -1,50 +1,55 @@
 package model;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import java.util.Iterator;
-
 import org.junit.jupiter.api.Test;
 
-//Classe Calculadora
+/**
+ * Classe que implementa uma calculadora para o cálculo do número máximo de visualizações de um anúncio
+ * @author margo
+ *
+ */
 public class Calculadora {
 
-	//atributos 
+	/**
+	 * Atributo Número de visualizações
+	 */
 	private double visualizacoesNum;
 	
-	//construtor
+	/**
+	 * Construtor da classe Calculadora
+	 */
 	public Calculadora() {
 		this.visualizacoesNum = 0;
 	}
 
-	//método para obter o número de visualizacões
 	public double getVisualizacoesNum() {
 		return visualizacoesNum;
 	}
 
-	//método para atualizar o número de visualizações
 	public void setVisualizacoesNum(double visualizacoesNum) {
 		this.visualizacoesNum = visualizacoesNum;
 	}
 
-	//método para calcular o número de cliques dado o número de visualizacoes
 	public double calculaCliques(double visualizacoes) {	
 		return (12.0/100.0)*visualizacoes;
 	}
 
-	//método para calcular o número de compartilhamentos dado o número de visualizacoes
 	public double calculaCompartilhamentos(double visualizacoes) {
-		return (3.0/20.0)*calculaCliques(visualizacoes);
+	    return (3.0/20.0)*calculaCliques(visualizacoes);
 	}
 
-	//método para calcular o número de visualizacoes dado o número de visualizacoes inicial
 	public double calculaVisualizacoes(double visualizacoes) {
-		return 40.0*calculaCompartilhamentos(visualizacoes);
+	    return 40.0*calculaCompartilhamentos(visualizacoes);
 	}
 	
-	//método para obter o número de visualizacoes máximas
-	public double getVisualizacoesMax( double invest_total) {
-		double aux = 30*invest_total;
+	/**
+	 * Método para obter o número máximo de visualizações
+	 * @param invest_total valor do investimento total
+	 * @return número máximo de visualizações
+	 */
+	public double getVisualizacoesMax(double invest_total) {
+		double aux = 30.0*invest_total;
 		setVisualizacoesNum(aux);
 		
 		for (int i = 0; i<3 ; i++) {
@@ -54,7 +59,9 @@ public class Calculadora {
 		return getVisualizacoesNum();
 	}
 	
-	// Testes unitários
+	/**
+	 * Testes unitários
+	 */
 	@Test
 	void test() {
 		Calculadora calculadora = new Calculadora();
@@ -74,7 +81,6 @@ public class Calculadora {
 		assertEquals("391747,20", String.format("%.2f", resultado ) );
 		
 		resultado = calculadora.getVisualizacoesMax(1.7);
-		assertEquals("133,19", String.format("%.2f", resultado ) );		
+		assertEquals("133,19", String.format("%.2f", resultado ) );	
 	}
 }
-	
