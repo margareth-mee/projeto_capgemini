@@ -1,4 +1,4 @@
-Etapas para utilização do projeto:
+Etapas para utilização do Sistema de Cadastro de Anúncios:
 
 1) clone o projeto usando o comando:
 
