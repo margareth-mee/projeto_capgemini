@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.util.Iterator;
 import org.junit.jupiter.api.Test;
 
+
 /**
  * Classe que implementa uma calculadora para o cálculo do número máximo de visualizações de um anúncio
  * @author margo
